@@ -1,7 +1,10 @@
 package br.com.terracuraplantmanager.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_plants")
@@ -11,15 +14,22 @@ public class PlantModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "plant")
     private Long id;
 
-    @ManyToOne()
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference("user_plants")
-    private UserModel userModel;
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToMany()
+    @JoinTable(
+            name = "tbl_plant_users",
+            joinColumns = { @JoinColumn(name = "plant_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+    )
+    @JsonManagedReference("user_plants")
+    private List<UserModel> userModel;
 
-    public Long getId() {
-        return id;
-    }
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "tbl_plant_places",
+            joinColumns = { @JoinColumn(name = "plant_id") },
+            inverseJoinColumns = { @JoinColumn(name = "place_id") }
+    )
+    @JsonManagedReference("place_plants")
+    private List<PlaceModel> placeModel;
 }
