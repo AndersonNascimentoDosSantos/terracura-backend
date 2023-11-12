@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  oracle-server-db:
+    container_name: oracle-server-db_faze7
+    image: gvenzl/oracle-xe:full
+    volumes:
+      - ./volume/u2/oradata:/opt/oracle/oradata
+    ports:
+      - "1521:1521"
+    environment:
+      SYS_PASSWORD: "310192"
+      ORACLE_PASSWORD: "310192"
+    
+volumes:
+  oradata:
+    external: true
