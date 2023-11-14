@@ -13,5 +13,17 @@ public class TaxonomyModel {
     private Long id;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "kingdom", column = @Column(name = "kingdom")),
+            @AttributeOverride(name = "phylum", column = @Column(name = "phylum")),
+            @AttributeOverride(name = "classe", column = @Column(name = "classe")),
+            @AttributeOverride(name = "order", column = @Column(name = "order_col")),
+            @AttributeOverride(name = "family", column = @Column(name = "family")),
+            @AttributeOverride(name = "genus", column = @Column(name = "genus")),
+            @AttributeOverride(name = "species", column = @Column(name = "species"))
+    })
     private Taxonomy taxonomy;
+    @OneToOne(mappedBy = "taxonomyModel")
+    private PlantModel plantModel;
+
 }

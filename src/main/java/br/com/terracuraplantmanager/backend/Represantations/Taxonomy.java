@@ -1,8 +1,9 @@
 package br.com.terracuraplantmanager.backend.Represantations;
 
 
+import jakarta.persistence.Embeddable;
 
-
+@Embeddable
 public class Taxonomy {
 
 
