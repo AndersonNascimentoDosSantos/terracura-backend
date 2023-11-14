@@ -27,4 +27,6 @@ public class PlaceModel {
     @JsonManagedReference("place_plants")
     private List<UserModel> userModel;
 
+    private String PlaceName;
+
 }

@@ -32,4 +32,12 @@ public class PlantModel {
     )
     @JsonManagedReference("place_plants")
     private List<PlaceModel> placeModel;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "taxonomy_id")
+    private TaxonomyModel taxonomyModel;
+    private String PlantName;
+    private String plantDescription;
+    private String plant_access_token;
 }
