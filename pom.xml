@@ -47,6 +47,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<artifactId>modelmapper</artifactId>
+			<groupId>org.modelmapper</groupId>
+			<version>2.3.9</version>
+		</dependency>
 	</dependencies>
 
 	<build>

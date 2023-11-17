@@ -4,7 +4,7 @@ import br.com.terracuraplantmanager.backend.Represantations.Taxonomy;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "taxonomies")
+@Table(name = "tbl_taxonomies")
 public class TaxonomyModel {
 
     @Id

@@ -35,7 +35,7 @@ public class PlantModel {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "taxonomy_id")
+    @JoinColumn(name = "taxonomy_id", nullable = true)
     private TaxonomyModel taxonomyModel;
     private String PlantName;
     private String plantDescription;
