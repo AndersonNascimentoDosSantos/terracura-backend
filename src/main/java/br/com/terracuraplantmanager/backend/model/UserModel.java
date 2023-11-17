@@ -20,5 +20,27 @@ public class UserModel {
     private List<PlaceModel> placeModel;
 
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<PlantModel> getPlantModel() {
+        return plantModel;
+    }
+
+    public void setPlantModel(List<PlantModel> plantModel) {
+        this.plantModel = plantModel;
+    }
+
+    public List<PlaceModel> getPlaceModel() {
+        return placeModel;
+    }
+
+    public void setPlaceModel(List<PlaceModel> placeModel) {
+        this.placeModel = placeModel;
+    }
 }
