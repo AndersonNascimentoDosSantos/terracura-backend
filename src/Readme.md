@@ -29,6 +29,46 @@ password: 310192
 - POST /api/taxonomy: Crie um nova taxonomy.
 - PUT /api/taxonomy/{id}: Atualize uma taxonomia existente.
 - DELETE /api/taxonomy/{id}: Exclua uma taxonomia.
+
+  update and create json estruture
+```json
+ {
+  "kingdom": "Plantae",
+ "phylum": "Angiosperms",
+ "classe": "ExampleClass",
+ "order": "ExampleOrder",
+ "family": "ExampleFamily",
+ "genus": "ExampleGenus",
+ "species": "ExampleSpecies"
+  
+}
+```
+
+## Plant ##
+- GET /api/plant: Obtenha uma lista de todas as planta.
+- GET /api/plant/{id}: Obtenha detalhes de uma planta específica.
+- POST /api/plant: Crie um nova planta.
+- PUT /api/plant/{id}: Atualize uma planta existente.
+- DELETE /api/plant/{id}: Exclua uma planta.
+update and create json estruture
+```json
+{
+  "userModel": [
+ { "id": 1 }   
+  ],
+  "placeModel": [
+     { "id": 1 }
+  ],
+  "taxonomyModel": {   
+    "id": 1
+		
+  },
+  "plantName": "Your Plant Name",
+  "plantDescription": "Your Plant Description",
+  "plant_access_token": "Your Access Token"
+}
+```
+
 ## Contribuindo
 Se você encontrar problemas com a coleção Postman ou tiver sugestões de melhoria, sinta-se à vontade para abrir uma issue ou enviar uma solicitação de pull. As contribuições são sempre bem-vindas!
 
