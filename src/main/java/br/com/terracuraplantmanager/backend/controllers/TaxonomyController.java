@@ -1,5 +1,6 @@
 package br.com.terracuraplantmanager.backend.controllers;
 
+import br.com.terracuraplantmanager.backend.Represantations.Taxonomy;
 import br.com.terracuraplantmanager.backend.model.TaxonomyModel;
 import br.com.terracuraplantmanager.backend.service.PlantService;
 import br.com.terracuraplantmanager.backend.service.TaxonomyService;
@@ -7,9 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -32,16 +31,15 @@ public class TaxonomyController {
         return new ResponseEntity<>(resposta, HttpStatus.OK);
     }
 
-//    ResponseEntity<TaxonomyModel>
-    @PostMapping
-    public String adicionar(@ModelAttribute TaxonomyModel plantReq, Model model) {
+    @PostMapping()
+    public ResponseEntity<TaxonomyModel> adicionar(@RequestBody Taxonomy plantReq) {
         ModelMapper mapper = new ModelMapper();
-        TaxonomyModel plant;
+//        Taxonomy taxonomy = mapper.map(plantReq, Taxonomy.class);
+        TaxonomyModel taxonomyModel = new TaxonomyModel();
+        taxonomyModel.setTaxonomy(plantReq);
+        taxonomyModel = taxonomyService.create(taxonomyModel);
 
-        plant = taxonomyService.create(plantReq);
-//        model.addAttribute("createdTaxonomy", plant);
-return plantReq.toString();
-//        return new ResponseEntity<>( plantReq, HttpStatus.CREATED);
+        return new ResponseEntity<>(mapper.map(taxonomyModel, TaxonomyModel.class), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -59,11 +57,13 @@ return plantReq.toString();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TaxonomyModel> atualizar(@RequestBody TaxonomyModel plantReq, @PathVariable Long id) {
+    public ResponseEntity<TaxonomyModel> atualizar(@RequestBody Taxonomy plantReq, @PathVariable Long id) {
         ModelMapper mapper = new ModelMapper();
-        TaxonomyModel plant = mapper.map(plantReq, TaxonomyModel.class);
-        plant = taxonomyService.update(id, plantReq);
+        TaxonomyModel taxonomyModel = new TaxonomyModel();
+        taxonomyModel.setTaxonomy(plantReq);
+//        TaxonomyModel plant = mapper.map(plantReq, TaxonomyModel.class);
+        taxonomyModel = taxonomyService.update(id, taxonomyModel);
         return new ResponseEntity<>(
-                mapper.map(plant, TaxonomyModel.class), HttpStatus.OK);
+                mapper.map(taxonomyModel, TaxonomyModel.class), HttpStatus.OK);
     }
 }
