@@ -29,4 +29,35 @@ public class PlaceModel {
 
     private String PlaceName;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<PlantModel> getPlantModel() {
+        return plantModel;
+    }
+
+    public void setPlantModel(List<PlantModel> plantModel) {
+        this.plantModel = plantModel;
+    }
+
+    public List<UserModel> getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(List<UserModel> userModel) {
+        this.userModel = userModel;
+    }
+
+    public String getPlaceName() {
+        return PlaceName;
+    }
+
+    public void setPlaceName(String placeName) {
+        PlaceName = placeName;
+    }
 }
