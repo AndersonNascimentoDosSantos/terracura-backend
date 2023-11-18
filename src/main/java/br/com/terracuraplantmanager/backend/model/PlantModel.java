@@ -40,4 +40,60 @@ public class PlantModel {
     private String PlantName;
     private String plantDescription;
     private String plant_access_token;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<UserModel> getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(List<UserModel> userModel) {
+        this.userModel = userModel;
+    }
+
+    public List<PlaceModel> getPlaceModel() {
+        return placeModel;
+    }
+
+    public void setPlaceModel(List<PlaceModel> placeModel) {
+        this.placeModel = placeModel;
+    }
+
+    public TaxonomyModel getTaxonomyModel() {
+        return taxonomyModel;
+    }
+
+    public void setTaxonomyModel(TaxonomyModel taxonomyModel) {
+        this.taxonomyModel = taxonomyModel;
+    }
+
+    public String getPlantName() {
+        return PlantName;
+    }
+
+    public void setPlantName(String plantName) {
+        PlantName = plantName;
+    }
+
+    public String getPlantDescription() {
+        return plantDescription;
+    }
+
+    public void setPlantDescription(String plantDescription) {
+        this.plantDescription = plantDescription;
+    }
+
+    public String getPlant_access_token() {
+        return plant_access_token;
+    }
+
+    public void setPlant_access_token(String plant_access_token) {
+        this.plant_access_token = plant_access_token;
+    }
 }
