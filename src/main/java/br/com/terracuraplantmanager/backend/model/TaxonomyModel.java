@@ -26,4 +26,40 @@ public class TaxonomyModel {
     @OneToOne(mappedBy = "taxonomyModel")
     private PlantModel plantModel;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Taxonomy getTaxonomy() {
+        return taxonomy;
+    }
+
+    public void setTaxonomy(Taxonomy taxonomy) {
+        this.taxonomy = taxonomy;
+    }
+
+    public PlantModel getPlantModel() {
+        return plantModel;
+    }
+
+    public void setPlantModel(PlantModel plantModel) {
+        this.plantModel = plantModel;
+    }
+    @Override
+    public String toString() {
+        return "Taxonomy{" +
+                "classe='" + this.taxonomy.getClasse() + '\'' +
+                ", family='" + this.taxonomy.getFamily() + '\'' +
+                ", genus='" + this.taxonomy.getGenus() + '\'' +
+                ", kingdom='" + this.taxonomy.getKingdom() + '\'' +
+                ", orderCol='" + this.taxonomy.getOrder() + '\'' +
+                ", phylum='" + this.taxonomy.getPhylum() + '\'' +
+                ", species='" + this.taxonomy.getSpecies() + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
