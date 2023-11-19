@@ -20,7 +20,7 @@ public class PlantModel {
             joinColumns = { @JoinColumn(name = "plant_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") }
     )
-    @JsonManagedReference("user_plants")
+//    @JsonManagedReference("user_plants")
     private List<UserModel> userModel;
 
 
@@ -30,7 +30,7 @@ public class PlantModel {
             joinColumns = { @JoinColumn(name = "plant_id") },
             inverseJoinColumns = { @JoinColumn(name = "place_id") }
     )
-    @JsonManagedReference("place_plants")
+//    @JsonManagedReference("place_plants")
     private List<PlaceModel> placeModel;
 
 

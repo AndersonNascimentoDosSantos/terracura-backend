@@ -28,10 +28,10 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user")
     private Long id;
     @ManyToMany(mappedBy = "userModel")
-    @JsonBackReference("user_plants")
+//    @JsonBackReference("user_plants")
     private List<PlantModel> plantModel;
     @ManyToMany(mappedBy = "userModel")
-    @JsonBackReference("place_plants")
+//    @JsonBackReference("place_plants")
     private List<PlaceModel> placeModel;
 
     private String email;

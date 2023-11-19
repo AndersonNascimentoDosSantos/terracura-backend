@@ -15,7 +15,7 @@ public class PlaceModel {
     private Long id;
 
     @ManyToMany(mappedBy = "placeModel")
-    @JsonBackReference("place_plants")
+//    @JsonBackReference("place_plants")
     private List<PlantModel> plantModel;
 
     @ManyToMany(cascade = { CascadeType.ALL })
@@ -24,7 +24,7 @@ public class PlaceModel {
             joinColumns = { @JoinColumn(name = "place_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") }
     )
-    @JsonManagedReference("place_plants")
+//    @JsonManagedReference("place_user")
     private List<UserModel> userModel;
 
     private String PlaceName;
