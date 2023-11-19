@@ -8,11 +8,13 @@ import br.com.terracuraplantmanager.backend.service.PlaceService;
 import br.com.terracuraplantmanager.backend.service.PlantService;
 import br.com.terracuraplantmanager.backend.service.TaxonomyService;
 import br.com.terracuraplantmanager.backend.service.UserService;
+import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,7 @@ public class PlantController {
     private UserService userService;
     @Autowired
     private TaxonomyService taxonomyService;
+
     @GetMapping
     public ResponseEntity<List<PlantModel>> obterTodos() {
         List<PlantModel> plants = plantService.findAll();
@@ -42,8 +45,7 @@ public class PlantController {
     }
 
     @PostMapping
-
-    public ResponseEntity<PlantModel> adicionar(@RequestBody PlantModel plantReq) {
+    public ResponseEntity<PlantModel> adicionar(@RequestBody @NotNull PlantModel plantReq) {
         ModelMapper mapper = new ModelMapper();
 
         // Create a new PlantModel instance
@@ -99,7 +101,7 @@ public class PlantController {
     @PutMapping("/{id}")
     public ResponseEntity<PlantModel> atualizar(@RequestBody PlantModel plantReq, @PathVariable Long id) {
         ModelMapper mapper = new ModelMapper();
-        PlantModel plant = mapper.map(plantReq, PlantModel.class);
+        PlantModel plant ;
         plant = plantService.update(id, plantReq);
         return new ResponseEntity<>(
                 mapper.map(plant, PlantModel.class), HttpStatus.OK);
