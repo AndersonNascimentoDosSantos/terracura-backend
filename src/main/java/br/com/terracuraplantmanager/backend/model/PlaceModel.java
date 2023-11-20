@@ -18,7 +18,7 @@ public class PlaceModel {
 //    @JsonBackReference("place_plants")
     private List<PlantModel> plantModel;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL, CascadeType.MERGE })
     @JoinTable(
             name = "tbl_place_user",
             joinColumns = { @JoinColumn(name = "place_id") },
